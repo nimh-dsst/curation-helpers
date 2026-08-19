@@ -19,6 +19,16 @@ are present in the working directories and will ultimately be uploaded to
 the target repository listed below — but only after de-identification is
 verified and a human approves the release.
 
+Curation here means two core tasks, in tension with neither:
+
+1. **De-identification** — removing or transforming anything that could
+   identify a participant (see "Data handling").
+2. **Formatting** — organizing the dataset according to the data
+   specification below or, where no formal specification applies, so that
+   an end user unfamiliar with the study can understand and use it:
+   consistent naming, complete metadata, documented variables, no
+   study-internal cruft.
+
 ## Data handling — read first
 
 - **The dataset is not public yet.** Until it is released, do not upload,
@@ -29,7 +39,7 @@ verified and a human approves the release.
 - **Never release or upload anything on your own.** Uploads to the target
   repository, and any step that marks data as "ready to share," require
   explicit human sign-off every time.
-- **De-identification is the core curation task.** Direct identifiers
+- **De-identification is non-negotiable before release.** Direct identifiers
   (names, dates of birth, contact details, medical record numbers, exact
   dates where prohibited, identifying free text, faces in imaging) must
   be removed or transformed before release. Project requirements:
@@ -83,7 +93,9 @@ shared dataset can cost weeks.
 -->
 
 - **Data specification:** [e.g. BIDS vX.Y, NWB, psych-DS, ISA-Tab, a
-  study-specific data dictionary — name it and link to its documentation]
+  study-specific data dictionary — name it and link to its documentation.
+  If none applies, write "none" — formatting then targets end-user
+  experience, per the core tasks above]
 - **Target repository:** [where the curated data will be shared,
   e.g. OpenNeuro, NDA, DANDI, OSF, an institutional archive]
 - **Validation:** [how conformance to the specification is checked,
