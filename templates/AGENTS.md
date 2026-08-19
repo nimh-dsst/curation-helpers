@@ -59,7 +59,7 @@ to years.]
 | Path | Contents |
 | --- | --- |
 | `code/` | [Curation scripts] |
-| `logs/` | [Notes, decisions, curation log] |
+| `logs/` | [Curation history: decisions, transforms, flagged anomalies — see Part 2] |
 | `raw/` | [Original data as received — immutable, read-only] |
 | `to_upload/` | [Working copy where curation happens; what gets uploaded] |
 
@@ -159,6 +159,18 @@ Here, "you" is the agent; "the user" is the human collaborator.
 - Use real participant IDs in code, commits, or conversation only if
   they are cleared for release; otherwise use fake IDs (`sub-XXXX`).
 
+## Anomalies and the curation log
+
+- Watch for the unexpected as you work: missing data (subjects,
+  sessions, files, or values), out-of-range or impossible values, and
+  inconsistencies between the data and its documentation (README, data
+  dictionary, an associated publication). Notify the user when you find
+  one, and record it in `logs/` so it isn't lost with the conversation.
+- `logs/` must hold the complete curation history: every decision made
+  and every transform applied to the dataset, recorded as it happens,
+  so the full path from `raw/` to `to_upload/` can be reconstructed
+  later.
+
 ## Ambiguity — ask, don't assume
 
 A wrong guess applied across a dataset is hard to detect and harder to
@@ -186,9 +198,8 @@ Do:
   flags and show the plan before bulk changes.
 - Run the project's validation after any change to dataset structure,
   filenames, or metadata.
-- Log non-obvious curation decisions in the project's curation log.
-- Surface anything that looks like an identifier, an inconsistency, or
-  a consent/sharing question rather than working around it.
+- Surface anything that looks like an identifier or a consent/sharing
+  question rather than working around it.
 
 Don't:
 
