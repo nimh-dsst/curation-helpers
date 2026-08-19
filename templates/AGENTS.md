@@ -12,13 +12,12 @@
 # [PROJECT NAME]
 
 [One or two sentences: what this repository is, what data it curates, and
-what the end product is — e.g. "Curation code for the [STUDY] MRI dataset,
-converting raw DICOMs to BIDS for sharing on OpenNeuro."]
+what the end product is.]
 
 ## Data safety — read first
 
 - **Never commit participant data.** No imaging data, phenotype files,
-  DICOM headers, logs, or console output containing subject identifiers.
+  headers, logs, or console output containing subject identifiers.
   If a file might contain data, it does not belong in git.
 - **Never send data to external services.** Do not upload, paste, or
   transmit participant data (including file listings with subject IDs) to
@@ -30,6 +29,25 @@ converting raw DICOMs to BIDS for sharing on OpenNeuro."]
   transforms.
 - When showing examples in code, comments, or commits, use fake subject
   IDs (e.g. `sub-XXXX`), never real ones.
+
+## Data specification and target repository
+
+<!--
+  Fill these in if the project has decided on them. If you leave them
+  as-is, agents will ask you before doing any spec-dependent work.
+-->
+
+- **Data specification:** [e.g. BIDS vX.Y, NWB, psych-DS, ISA-Tab, a
+  study-specific data dictionary — name it and link to its documentation]
+- **Target repository:** [where the curated data will ultimately live,
+  e.g. OpenNeuro, NDA, DANDI, OSF, an institutional archive]
+- **Validation:** [how conformance to the specification is checked,
+  e.g. a validator command, a CI check, a review checklist]
+
+> **Agents:** if any item above is still a `[BRACKETED]` placeholder, ask
+> the user which data specification and/or target repository this project
+> uses before doing any work that depends on it (naming, directory
+> structure, metadata, validation). Do not assume a default standard.
 
 ## Repository layout
 
@@ -50,14 +68,14 @@ converting raw DICOMs to BIDS for sharing on OpenNeuro."]
 ```
 
 - Python version: [X.Y]
-- Key dependencies: [e.g. heudiconv, dcm2niix, pydeface, bids-validator]
+- Key dependencies: [conversion tools, validators, analysis libraries]
 - Runs on: [e.g. NIH HPC (Biowulf), local workstation]
 
 ## Common commands
 
 ```bash
 # [The commands an agent should use to run, test, and validate, e.g.:]
-# bids-validator [BIDS DIRECTORY]
+# [VALIDATOR COMMAND] [DATA DIRECTORY]
 # python code/check_naming.py
 # pytest
 ```
@@ -67,9 +85,8 @@ structure, filenames, or metadata.
 
 ## Conventions
 
-- Data standard: [e.g. BIDS vX.Y — https://bids-specification.readthedocs.io]
-- Filenames and entities follow [e.g. the BIDS specification; study-specific
-  rules documented in docs/naming.md].
+- Filenames and directory structure follow [the data specification above;
+  study-specific rules documented in docs/naming.md].
 - Code style: [e.g. ruff + black defaults; shell scripts pass shellcheck].
 - Commits: [e.g. short imperative subject lines; reference issue numbers].
 
@@ -84,10 +101,10 @@ structure, filenames, or metadata.
 ## What agents should not do
 
 - Do not commit or push without being asked.
-- Do not "fix" validator errors by deleting files or scans — flag them
+- Do not "fix" validation errors by deleting files or records — flag them
   for a human decision.
-- Do not modify [PROTECTED FILES, e.g. participants.tsv, original task
-  events] without explicit instruction.
+- Do not modify [PROTECTED FILES, e.g. subject-level metadata, original
+  task events] without explicit instruction.
 
 ## Contacts and resources
 
