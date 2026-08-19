@@ -3,6 +3,13 @@
 
   Copy this file to the root of your curation repo as AGENTS.md.
 
+  This file has two audiences, and each part names its reader:
+  - Part 1 is addressed to THE USER — the human collaborator curating
+    the dataset. In Part 1, "you" means the user.
+  - Part 2 is addressed to THE AGENT — the AI coding agent working in
+    the repository. In Part 2, "you" means the agent, and "the user"
+    means the human.
+
   Part 1 ("Project configuration") is yours: fill in the [BRACKETED]
   items. Fill in what you can — anything left bracketed, the agent will
   ask you about before starting work, so an incomplete Part 1 is safe.
@@ -31,7 +38,10 @@ human approves the release.
 
 ---
 
-# Part 1 — Project configuration (fill this in)
+# Part 1 — Project configuration (the user fills this in)
+
+*This part is addressed to the user — the human collaborator. Agents:
+read Part 1 as project facts, and see Part 2 for your instructions.*
 
 Everything an agent needs to know about *your* project is in this part.
 Fill in what you can — when you fill in an item, replace the whole
@@ -120,7 +130,10 @@ subject-level metadata, original task events.]
 
 ---
 
-# Part 2 — Rules for agents (keep intact)
+# Part 2 — Rules for agents (the user keeps this intact)
+
+*This part is addressed to the agent: "you" below means the agent, and
+"the user" means the human collaborator who maintains this repository.*
 
 ## Construct the full workflow before operating
 
