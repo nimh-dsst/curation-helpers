@@ -30,7 +30,10 @@ are fine answers when it does.
 ## Overview
 
 [One or two sentences: what data this repository curates and what the
-end product is.]
+end product is. Add any context that would help the agent understand
+the dataset — for example, if the data supports a publication, cite or
+link it: study design, sample size, task descriptions, and variable
+definitions drawn from the paper are all useful during curation.]
 
 ## Data specification and target repository
 
