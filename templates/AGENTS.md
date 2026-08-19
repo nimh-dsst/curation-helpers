@@ -6,14 +6,9 @@
   agents (Claude Code, Codex, Copilot, etc.) read it when working in
   the repository. Keep it short, factual, and current.
 
-  Two audiences: Part 1 addresses the user (the human collaborator);
-  Part 2 addresses the agent.
-
-  Users: fill in the [BRACKETED] items in Part 1, replacing each whole
-  placeholder, brackets included. None are required: leave undecided
-  items bracketed — the brackets are how the agent knows to ask — and
-  when it asks, "none", "no opinion", or "I don't know yet" are all
-  fine answers. Keep Part 2 intact.
+  To fill in a [BRACKETED] item, replace the whole placeholder,
+  brackets included. Leave undecided items bracketed — the brackets
+  are how the agent knows to ask.
 -->
 
 # [PROJECT NAME]
