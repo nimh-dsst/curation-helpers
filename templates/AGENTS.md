@@ -14,9 +14,9 @@
 # [PROJECT NAME]
 
 This repository prepares participant data for **public release**. The
-working directories contain not-yet-public data; nothing leaves them
-for the target repository until de-identification is verified and a
-human approves the release.
+working directories contain not-yet-public data; no data is uploaded
+to the target repository until it has been verified as de-identified
+and a human has approved the release.
 
 ---
 
