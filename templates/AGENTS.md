@@ -57,7 +57,8 @@ anatomical images, shift dates, drop free-text columns, restrict age
 to years.]
 
 - **Participant IDs cleared for release?** [yes/no — governs whether
-  real IDs may appear in code, commits, and conversation (see Part 2)]
+  real IDs may appear in code, commits, and conversation, per "Data
+  handling" in Part 2]
 
 ## Repository layout
 
@@ -66,7 +67,7 @@ to years.]
 | `AGENTS.md` | This file, at the repository root |
 | `README.md` | High-level overview of the repository's contents |
 | `code/` | Curation scripts |
-| `logs/` | Curation history: decisions, transforms, flagged anomalies — see Part 2 |
+| `logs/` | Curation history: decisions, transforms, flagged anomalies — see "Anomalies and the curation log" in Part 2 |
 | `src/` | Original data as received — immutable, read-only |
 | `to_upload/` | Working copy where curation happens; what gets uploaded |
 
@@ -136,7 +137,7 @@ exploration and answering questions are exempt.
    "I don't know yet" are valid answers — accept them, then propose an
    approach for the user to confirm, or scope the work to what doesn't
    depend on the open item.
-2. Map the end-to-end path (typically raw data → transforms →
+2. Map the end-to-end path (typically source data → transforms →
    formatting → de-identification → validation → human review →
    upload; stages may interleave) and place the task within it.
 3. Present the workflow (steps, affected files, sign-off points) and
@@ -163,12 +164,12 @@ exploration and answering questions are exempt.
   record numbers, exact dates where the sharing rules prohibit them,
   identifying free text, faces in imaging) per Part 1's requirements.
 - If you find suspected PII/PHI — anywhere, including filenames,
-  headers, sidecar metadata, logs, spreadsheet comments — stop and
-  flag it. Describe its location without reproducing it; never
+  headers, sidecar metadata, log files, spreadsheet comments — stop
+  and flag it. Describe its location without reproducing it; never
   silently delete or "fix" it.
-- Never delete or overwrite source data. Curation is one-way: raw data
-  is immutable; fixes happen on downstream copies via documented,
-  reversible transforms.
+- Never delete or overwrite source data (`src/`). Curation is one-way:
+  fixes happen on downstream copies via documented, reversible
+  transforms.
 - Follow Part 1's "Data and git" rule; when in doubt, ask before
   committing any data file.
 - Use real participant IDs in code, commits, or conversation only if
@@ -214,8 +215,8 @@ especially about:
 Do:
 
 - Ask before anything that writes to the data directories (`src/`,
-  `to_upload/`); prefer dry-run flags and show the plan before bulk
-  changes. Writing to `logs/` needs no permission — it's expected.
+  `to_upload/`), and prefer dry-run flags. Writing to `logs/` needs no
+  permission — it's expected.
 - Run the project's validation after any change to dataset structure,
   filenames, or metadata.
 - Surface consent- or sharing-related questions rather than working
@@ -223,8 +224,6 @@ Do:
 
 Don't:
 
-- Upload data or trigger a release without explicit instruction for
-  that specific step.
 - Commit or push without being asked.
 - "Fix" validation errors by deleting files or records — flag them for
   a human decision.
