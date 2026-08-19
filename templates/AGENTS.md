@@ -175,8 +175,8 @@ exploration and answering questions are exempt.
 - Follow Part 1's "Data and git" rule; when in doubt, ask before
   committing any data file.
 - Use the subject IDs from `src/` in code, commits, or conversation
-  only if Part 1 says they are cleared for release; otherwise use fake
-  IDs (`sub-XXXX`).
+  only if Part 1 says they are cleared for release; otherwise ask the
+  user how IDs should be represented.
 
 ## Anomalies and the curation log
 
