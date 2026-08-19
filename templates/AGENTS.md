@@ -89,9 +89,7 @@ subject-level metadata, original task events.]
 ## Environment and setup
 
 ```bash
-# [e.g.:]
-# uv sync
-# uv run [SCRIPT]
+# [ENVIRONMENT SETUP COMMANDS — e.g. uv sync]
 ```
 
 - Python: [X.Y]
@@ -101,7 +99,7 @@ subject-level metadata, original task events.]
 
 ## Common commands
 
-All runnable commands live here.
+All routine commands live here; setup commands are above.
 
 ```bash
 # [VALIDATOR COMMAND] to_upload/
@@ -216,8 +214,8 @@ especially about:
 
 Do:
 
-- Ask before anything that writes to the data directories (`src/`,
-  `to_upload/`), and prefer dry-run flags. Writing to `logs/` needs no
+- Ask before anything that writes to `to_upload/`, and prefer dry-run
+  flags; nothing ever writes to `src/`. Writing to `logs/` needs no
   permission — it's expected.
 - Run the project's validation after any change to dataset structure,
   filenames, or metadata.
