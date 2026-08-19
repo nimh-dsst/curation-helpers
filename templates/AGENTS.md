@@ -10,8 +10,10 @@
   Part 2 addresses the agent.
 
   Users: fill in the [BRACKETED] items in Part 1, replacing each whole
-  placeholder, brackets included. Leave undecided items bracketed —
-  the brackets are how the agent knows to ask. Keep Part 2 intact.
+  placeholder, brackets included. None are required: leave undecided
+  items bracketed — the brackets are how the agent knows to ask — and
+  when it asks, "none", "no opinion", or "I don't know yet" are all
+  fine answers. Keep Part 2 intact.
 -->
 
 # [PROJECT NAME]
@@ -25,8 +27,10 @@ a human approves the release.
 
 # Part 1 — Project configuration (the user fills this in)
 
-The agent will ask about any item still `[BRACKETED]` before doing work
-that depends on it, rather than assuming an answer.
+No item here is required. The agent will ask about any item still
+`[BRACKETED]` before doing work that depends on it, rather than
+assuming an answer — and "none", "no opinion", or "I don't know yet"
+are fine answers when it does.
 
 ## Overview
 
@@ -114,7 +118,10 @@ Here, "you" is the agent; "the user" is the human collaborator.
 
 1. Read Part 1. If the task depends on an item still `[BRACKETED]`,
    ask the user — never assume a default, especially for the data
-   specification or target repository.
+   specification or target repository. "None", "no opinion", and
+   "I don't know yet" are valid answers: accept them without pressing,
+   then propose a sensible approach for the user to confirm, or scope
+   the work to what doesn't depend on the open item.
 2. Map the end-to-end path — source data → transforms → formatting →
    de-identification → validation → human review → upload — and place
    the task within it.
