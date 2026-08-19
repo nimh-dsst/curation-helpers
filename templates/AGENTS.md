@@ -69,9 +69,11 @@ to years.]
 | `src/` | [Original data as received — immutable, read-only] |
 | `to_upload/` | [Working copy where curation happens; what gets uploaded] |
 
-These path names are the DSST convention; if your repo differs, update
-the table — Part 2's references to `src/` and `to_upload/` mean the
-directories serving these roles.
+The path names above are the DSST convention. If your repo uses
+different names, edit the Path column to match; the bracketed Contents
+descriptions are yours to fill in either way. Part 2's references to
+`src/` and `to_upload/` always mean whichever directories serve those
+roles in your table.
 
 ## Data and git
 
