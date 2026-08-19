@@ -36,9 +36,9 @@ human approves the release.
 Everything an agent needs to know about *your* project is in this part.
 Fill in what you can — when you fill in an item, replace the whole
 placeholder, brackets included, with your text. Leave undecided items
-in their brackets: **any item still `[BRACKETED]` is not an invitation
-to guess — the agent will ask you about it before doing work that
-depends on it.**
+in their brackets: **the agent will ask you about any item still
+`[BRACKETED]` before doing work that depends on it, rather than
+assuming an answer.**
 
 ## Overview
 
