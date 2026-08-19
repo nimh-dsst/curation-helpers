@@ -77,8 +77,8 @@ subject-level metadata, original task events.]
 
 ```bash
 # [e.g.:]
-# conda env create -f environment.yml
-# conda activate [ENV NAME]
+# uv sync
+# uv run [SCRIPT]
 ```
 
 - Python: [X.Y]
