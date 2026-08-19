@@ -64,6 +64,7 @@ to years.]
 | Path | Contents |
 | --- | --- |
 | `AGENTS.md` | This file, at the repository root |
+| `README.md` | High-level overview of the repository's contents |
 | `code/` | Curation scripts |
 | `logs/` | Curation history: decisions, transforms, flagged anomalies — see Part 2 |
 | `src/` | Original data as received — immutable, read-only |
