@@ -3,7 +3,7 @@
 
   Copy this file to the root of your curation repo as AGENTS.md and fill in
   the [BRACKETED] placeholders. Delete sections that don't apply, but keep
-  the "Data safety" section intact — it is the reason this file exists.
+  the "Data handling" section intact — it is the reason this file exists.
 
   AGENTS.md is read by AI coding agents (Claude Code, Codex, Copilot, etc.)
   when they work in your repository. Keep it short, factual, and current.
@@ -14,21 +14,41 @@
 [One or two sentences: what this repository is, what data it curates, and
 what the end product is.]
 
-## Data safety — read first
+This project curates participant data for **public sharing**. Data files
+are present in the working directories and will ultimately be uploaded to
+the target repository listed below — but only after de-identification is
+verified and a human approves the release.
 
-- **Never commit participant data.** No imaging data, phenotype files,
-  headers, logs, or console output containing subject identifiers.
-  If a file might contain data, it does not belong in git.
-- **Never send data to external services.** Do not upload, paste, or
-  transmit participant data (including file listings with subject IDs) to
-  any API, web service, or third-party tool.
-- **Treat data directories as read-only** unless the task is explicitly to
-  modify them: [LIST DATA PATHS, e.g. /data/STUDY/rawdata, sourcedata/].
-- **Never delete or overwrite source data.** Curation is one-way: raw data
-  is immutable; all fixes happen downstream or via documented, reversible
-  transforms.
-- When showing examples in code, comments, or commits, use fake subject
-  IDs (e.g. `sub-XXXX`), never real ones.
+## Data handling — read first
+
+- **The dataset is not public yet.** Until it is released, do not upload,
+  paste, or transmit data (including file listings or metadata containing
+  participant information) to any service other than the designated
+  target repository — and to that repository only when explicitly
+  instructed.
+- **Never release or upload anything on your own.** Uploads to the target
+  repository, and any step that marks data as "ready to share," require
+  explicit human sign-off every time.
+- **De-identification is the core curation task.** Direct identifiers
+  (names, dates of birth, contact details, medical record numbers, exact
+  dates where prohibited, identifying free text, faces in imaging) must
+  be removed or transformed before release. Project requirements:
+  [LIST THEM, e.g. deface anatomical images, shift dates, drop free-text
+  columns, restrict age to years].
+- **If you find suspected PII/PHI, stop and flag it to the user** —
+  including in unexpected places (filenames, headers, sidecar metadata,
+  logs, spreadsheet comments). Do not silently delete or "fix" it, and do
+  not reproduce the identifier itself in your output; describe where it
+  is.
+- **Never delete or overwrite source data.** Curation is one-way: raw
+  data is immutable; all fixes happen on downstream copies via
+  documented, reversible transforms.
+- **What goes in git:** [e.g. code and docs only, data stays out of git;
+  or data is tracked with DataLad/git-annex — state the rule]. When in
+  doubt, ask before committing any data file.
+- In code, comments, commits, and conversation, use the dataset's
+  participant IDs only if they are themselves cleared for release;
+  otherwise use fake IDs (e.g. `sub-XXXX`).
 
 ## Data specification and target repository
 
@@ -39,15 +59,18 @@ what the end product is.]
 
 - **Data specification:** [e.g. BIDS vX.Y, NWB, psych-DS, ISA-Tab, a
   study-specific data dictionary — name it and link to its documentation]
-- **Target repository:** [where the curated data will ultimately live,
+- **Target repository:** [where the curated data will be shared,
   e.g. OpenNeuro, NDA, DANDI, OSF, an institutional archive]
 - **Validation:** [how conformance to the specification is checked,
   e.g. a validator command, a CI check, a review checklist]
+- **De-identification check:** [how release-readiness is verified,
+  e.g. a PII scan script, a reviewer checklist, tool output to attach]
 
 > **Agents:** if any item above is still a `[BRACKETED]` placeholder, ask
 > the user which data specification and/or target repository this project
 > uses before doing any work that depends on it (naming, directory
-> structure, metadata, validation). Do not assume a default standard.
+> structure, metadata, validation, upload preparation). Do not assume a
+> default standard.
 
 ## Repository layout
 
@@ -57,7 +80,8 @@ what the end product is.]
 | --- | --- |
 | `code/` | [Curation scripts] |
 | `docs/` | [Notes, decisions, curation log] |
-| `[data path]` | [Where the data lives — usually outside the repo] |
+| `[data path]` | [Where the working copy of the data lives] |
+| `[source path]` | [Immutable raw/source data — read-only] |
 
 ## Environment and setup
 
@@ -68,7 +92,8 @@ what the end product is.]
 ```
 
 - Python version: [X.Y]
-- Key dependencies: [conversion tools, validators, analysis libraries]
+- Key dependencies: [conversion tools, validators, de-identification and
+  analysis libraries]
 - Runs on: [e.g. NIH HPC (Biowulf), local workstation]
 
 ## Common commands
@@ -76,7 +101,7 @@ what the end product is.]
 ```bash
 # [The commands an agent should use to run, test, and validate, e.g.:]
 # [VALIDATOR COMMAND] [DATA DIRECTORY]
-# python code/check_naming.py
+# [PII SCAN COMMAND] [DATA DIRECTORY]
 # pytest
 ```
 
@@ -97,9 +122,13 @@ structure, filenames, or metadata.
   moves, or metadata edits.
 - Log curation decisions in [e.g. docs/curation-log.md] when making
   non-obvious changes.
+- Surface anything that looks like an identifier, an inconsistency, or a
+  consent/sharing question rather than working around it.
 
 ## What agents should not do
 
+- Do not upload data anywhere, or trigger a release, without explicit
+  instruction for that specific step.
 - Do not commit or push without being asked.
 - Do not "fix" validation errors by deleting files or records — flag them
   for a human decision.
