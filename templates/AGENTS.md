@@ -170,6 +170,11 @@ Here, "you" is the agent; "the user" is the human collaborator.
   and every transform applied to the dataset, recorded as it happens,
   so the full path from `raw/` to `to_upload/` can be reconstructed
   later.
+- The log is a record, not a transcript. Write entries as concise,
+  human-readable summaries (what was done, to which files, and why) —
+  never paste conversation text. When the log grows repetitive or
+  disorganized, rewrite it for clarity, preserving every decision and
+  transform.
 
 ## Ambiguity — ask, don't assume
 
