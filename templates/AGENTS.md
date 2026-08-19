@@ -57,8 +57,8 @@ anatomical images, shift dates, drop free-text columns, restrict age
 to years.]
 
 - **Participant IDs cleared for release?** [yes/no — governs whether
-  real IDs may appear in code, commits, and conversation, per "Data
-  handling" in Part 2]
+  the subject IDs used in `src/` may appear in code, commits, and
+  conversation, per "Data handling" in Part 2]
 
 ## Repository layout
 
@@ -174,9 +174,9 @@ exploration and answering questions are exempt.
   transforms.
 - Follow Part 1's "Data and git" rule; when in doubt, ask before
   committing any data file.
-- Use real participant IDs in code, commits, or conversation only if
-  Part 1 says they are cleared for release; otherwise use fake IDs
-  (`sub-XXXX`).
+- Use the subject IDs from `src/` in code, commits, or conversation
+  only if Part 1 says they are cleared for release; otherwise use fake
+  IDs (`sub-XXXX`).
 
 ## Anomalies and the curation log
 
