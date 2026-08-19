@@ -65,11 +65,11 @@ to years.]
 | --- | --- |
 | `code/` | [Curation scripts] |
 | `logs/` | [Curation history: decisions, transforms, flagged anomalies — see Part 2] |
-| `raw/` | [Original data as received — immutable, read-only] |
+| `src/` | [Original data as received — immutable, read-only] |
 | `to_upload/` | [Working copy where curation happens; what gets uploaded] |
 
 These path names are the DSST convention; if your repo differs, update
-the table — Part 2's references to `raw/` and `to_upload/` mean the
+the table — Part 2's references to `src/` and `to_upload/` mean the
 directories serving these roles.
 
 ## Data and git
@@ -180,7 +180,7 @@ exploration and answering questions are exempt.
   dictionary, an associated publication). Notify the user when you find
   one, and record it in `logs/` so it isn't lost with the conversation.
 - `logs/` must hold the complete curation history — every decision and
-  every transform, recorded as it happens, so the full path from `raw/`
+  every transform, recorded as it happens, so the full path from `src/`
   to `to_upload/` can be reconstructed later. It is a record, not a
   transcript: write concise, human-readable entries (what was done, to
   which files, and why), never pasted conversation text, and when the
@@ -210,7 +210,7 @@ especially about:
 
 Do:
 
-- Ask before anything that writes to the data directories (`raw/`,
+- Ask before anything that writes to the data directories (`src/`,
   `to_upload/`); prefer dry-run flags and show the plan before bulk
   changes. Writing to `logs/` needs no permission — it's expected.
 - Run the project's validation after any change to dataset structure,
