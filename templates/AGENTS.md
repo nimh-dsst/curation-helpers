@@ -13,10 +13,10 @@
 
 # [PROJECT NAME]
 
-This project curates participant data for **public sharing**: data files
-are present in the working directories and will be uploaded to the
-target repository below — only after de-identification is verified and
-a human approves the release.
+This repository prepares participant data for **public release**. The
+working directories contain not-yet-public data; nothing leaves them
+for the target repository until de-identification is verified and a
+human approves the release.
 
 ---
 
