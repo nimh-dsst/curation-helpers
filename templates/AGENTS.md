@@ -63,6 +63,7 @@ to years.]
 
 | Path | Contents |
 | --- | --- |
+| `AGENTS.md` | This file, at the repository root |
 | `code/` | [Curation scripts] |
 | `logs/` | [Curation history: decisions, transforms, flagged anomalies — see Part 2] |
 | `src/` | [Original data as received — immutable, read-only] |
