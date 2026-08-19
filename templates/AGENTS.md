@@ -1,78 +1,54 @@
 <!--
   AGENTS.md template — NIMH Data Science and Sharing Team (DSST)
 
-  Copy this file to the root of your curation repo as AGENTS.md.
+  Copy this file to your curation repo root as AGENTS.md. AI coding
+  agents (Claude Code, Codex, Copilot, etc.) read it when working in
+  the repository. Keep it short, factual, and current.
 
-  This file has two audiences, and each part names its reader:
-  - Part 1 is addressed to THE USER — the human collaborator curating
-    the dataset. In Part 1, "you" means the user.
-  - Part 2 is addressed to THE AGENT — the AI coding agent working in
-    the repository. In Part 2, "you" means the agent, and "the user"
-    means the human.
+  Two audiences: Part 1 addresses the user (the human collaborator);
+  Part 2 addresses the agent.
 
-  Part 1 ("Project configuration") is yours: fill in the [BRACKETED]
-  items. Fill in what you can — anything left bracketed, the agent will
-  ask you about before starting work, so an incomplete Part 1 is safe.
-
-  The brackets themselves are the signal. To fill in an item, replace
-  the ENTIRE placeholder, brackets included, with your text. To leave
-  an item undecided, keep it exactly as-is, brackets and all — that is
-  how the agent knows to ask. Never put your real answer inside
-  brackets, and never delete a placeholder's brackets while leaving the
-  prompt text behind.
-
-  Part 2 ("Rules for agents") should be kept intact — it is the reason
-  this file exists.
-
-  AGENTS.md is read by AI coding agents (Claude Code, Codex, Copilot,
-  etc.) when they work in your repository. Keep it short, factual, and
-  current.
+  Users: fill in the [BRACKETED] items in Part 1, replacing each whole
+  placeholder, brackets included. Leave undecided items bracketed —
+  the brackets are how the agent knows to ask. Keep Part 2 intact.
 -->
 
 # [PROJECT NAME]
 
 This project curates participant data for **public sharing**: data files
-are present in the working directories and will be uploaded to the target
-repository below — but only after de-identification is verified and a
-human approves the release.
+are present in the working directories and will be uploaded to the
+target repository below — only after de-identification is verified and
+a human approves the release.
 
 ---
 
 # Part 1 — Project configuration (the user fills this in)
 
-*This part is addressed to the user — the human collaborator. Agents:
-read Part 1 as project facts, and see Part 2 for your instructions.*
-
-Everything an agent needs to know about *your* project is in this part.
-Fill in what you can — when you fill in an item, replace the whole
-placeholder, brackets included, with your text. Leave undecided items
-in their brackets: **the agent will ask you about any item still
-`[BRACKETED]` before doing work that depends on it, rather than
-assuming an answer.**
+The agent will ask about any item still `[BRACKETED]` before doing work
+that depends on it, rather than assuming an answer.
 
 ## Overview
 
-[One or two sentences: what data this repository curates, and what the
+[One or two sentences: what data this repository curates and what the
 end product is.]
 
 ## Data specification and target repository
 
-- **Data specification:** [e.g. BIDS vX.Y, NWB, psych-DS, ISA-Tab, a
-  study-specific data dictionary — name it and link to its documentation.
-  If none applies, write "none" — formatting then targets end-user
-  experience, per the core tasks in Part 2]
-- **Target repository:** [where the curated data will be shared,
-  e.g. OpenNeuro, NDA, DANDI, OSF, an institutional archive]
-- **Validation:** [how conformance to the specification is checked,
-  e.g. a validator command, a CI check, a review checklist]
-- **De-identification check:** [how release-readiness is verified,
-  e.g. a PII scan script, a reviewer checklist, tool output to attach]
+- **Data specification:** [e.g. BIDS vX.Y, NWB, psych-DS, a study data
+  dictionary — name and link it. If none applies, write "none";
+  formatting then targets end-user experience (see Part 2)]
+- **Target repository:** [e.g. OpenNeuro, NDA, DANDI, OSF, an
+  institutional archive]
+- **Validation:** [how spec conformance is checked — validator command,
+  CI check, review checklist]
+- **De-identification check:** [how release-readiness is verified —
+  PII scan script, reviewer checklist]
 
 ## De-identification requirements
 
 [What must be removed or transformed before release, e.g. deface
-anatomical images, shift dates, drop free-text columns, restrict age to
-years.]
+anatomical images, shift dates, drop free-text columns, restrict age
+to years.]
 
 ## Repository layout
 
@@ -80,13 +56,13 @@ years.]
 | --- | --- |
 | `code/` | [Curation scripts] |
 | `docs/` | [Notes, decisions, curation log] |
-| `[data path]` | [Where the working copy of the data lives] |
+| `[data path]` | [Working copy of the data] |
 | `[source path]` | [Immutable raw/source data — read-only] |
 
 ## Data and git
 
-[What goes in git, e.g. code and docs only, data stays out of git; or
-data is tracked with DataLad/git-annex — state the rule.]
+[What goes in git: e.g. code and docs only, data stays out; or data
+tracked with DataLad/git-annex.]
 
 ## Protected files
 
@@ -96,20 +72,19 @@ subject-level metadata, original task events.]
 ## Environment and setup
 
 ```bash
-# [How to create the environment, e.g.:]
+# [e.g.:]
 # conda env create -f environment.yml
 # conda activate [ENV NAME]
 ```
 
-- Python version: [X.Y]
-- Key dependencies: [conversion tools, validators, de-identification and
-  analysis libraries]
+- Python: [X.Y]
+- Key dependencies: [conversion tools, validators, de-identification
+  libraries]
 - Runs on: [e.g. NIH HPC (Biowulf), local workstation]
 
 ## Common commands
 
 ```bash
-# [The commands an agent should use to run, test, and validate, e.g.:]
 # [VALIDATOR COMMAND] [DATA DIRECTORY]
 # [PII SCAN COMMAND] [DATA DIRECTORY]
 # pytest
@@ -117,10 +92,10 @@ subject-level metadata, original task events.]
 
 ## Conventions
 
-- Filenames and directory structure follow [the data specification above;
-  study-specific rules documented in docs/naming.md].
-- Code style: [e.g. ruff + black defaults; shell scripts pass shellcheck].
-- Commits: [e.g. short imperative subject lines; reference issue numbers].
+- Naming and structure: [the data specification above; study-specific
+  rules in docs/naming.md]
+- Code style: [e.g. ruff + black; shell scripts pass shellcheck]
+- Commits: [e.g. short imperative subjects; reference issue numbers]
 
 ## Contacts and resources
 
@@ -132,110 +107,87 @@ subject-level metadata, original task events.]
 
 # Part 2 — Rules for agents (the user keeps this intact)
 
-*This part is addressed to the agent: "you" below means the agent, and
-"the user" means the human collaborator who maintains this repository.*
+Here, "you" is the agent; "the user" is the human collaborator.
 
 ## Construct the full workflow before operating
 
-Before doing any curation work, build and share a complete picture of the
-workflow — do not start operating on data with only a local view of the
-task:
-
-1. **Read Part 1.** If any item your task depends on is still
-   `[BRACKETED]` — including the data specification and target
-   repository — ask the user for it first. Do not assume a default
-   standard.
-2. **Map the end-to-end path:** source data → transforms → formatting →
-   de-identification → validation → human review → upload to the target
-   repository. Place the requested task within that path.
-3. **Present the workflow to the user** — the steps, the files affected,
-   and where their sign-off is required — and get confirmation before
-   executing.
+1. Read Part 1. If the task depends on an item still `[BRACKETED]`,
+   ask the user — never assume a default, especially for the data
+   specification or target repository.
+2. Map the end-to-end path — source data → transforms → formatting →
+   de-identification → validation → human review → upload — and place
+   the task within it.
+3. Present the workflow (steps, affected files, sign-off points) and
+   get the user's confirmation before executing.
 
 ## The two core curation tasks
 
-1. **De-identification** — removing or transforming anything that could
-   identify a participant (see "Data handling" below).
-2. **Formatting** — organizing the dataset according to the project's
-   data specification or, where none applies, so that an end user
-   unfamiliar with the study can understand and use it: consistent
-   naming, complete metadata, documented variables, no study-internal
-   cruft.
+1. **De-identification** — remove or transform anything that could
+   identify a participant.
+2. **Formatting** — organize the dataset to the project's data
+   specification or, if none, for an end user unfamiliar with the
+   study: consistent naming, complete metadata, documented variables,
+   no study-internal cruft.
 
 ## Data handling
 
-- **The dataset is not public yet.** Until it is released, do not upload,
-  paste, or transmit data (including file listings or metadata containing
-  participant information) to any service other than the designated
-  target repository — and to that repository only when explicitly
-  instructed.
-- **Never release or upload anything on your own.** Uploads to the target
-  repository, and any step that marks data as "ready to share," require
-  explicit human sign-off every time.
-- **De-identification is non-negotiable before release.** Direct
-  identifiers (names, dates of birth, contact details, medical record
-  numbers, exact dates where prohibited, identifying free text, faces in
-  imaging) must be removed or transformed per the requirements in Part 1.
-- **If you find suspected PII/PHI, stop and flag it to the user** —
-  including in unexpected places (filenames, headers, sidecar metadata,
-  logs, spreadsheet comments). Do not silently delete or "fix" it, and do
-  not reproduce the identifier itself in your output; describe where it
-  is.
-- **Never delete or overwrite source data.** Curation is one-way: raw
-  data is immutable; all fixes happen on downstream copies via
-  documented, reversible transforms.
-- Follow the "Data and git" rule in Part 1; when in doubt, ask before
+- The dataset is not public yet. Transmit data — including file
+  listings or metadata with participant information — to no service
+  except the target repository, and there only when explicitly
+  instructed. Every upload or "ready to share" step requires human
+  sign-off.
+- De-identification is non-negotiable before release: remove or
+  transform direct identifiers (names, birth dates, contact details,
+  record numbers, prohibited dates, identifying free text, faces in
+  imaging) per Part 1's requirements.
+- If you find suspected PII/PHI — anywhere, including filenames,
+  headers, sidecar metadata, logs, spreadsheet comments — stop and
+  flag it. Describe its location without reproducing it; never
+  silently delete or "fix" it.
+- Never delete or overwrite source data. Curation is one-way: raw data
+  is immutable; fixes happen on downstream copies via documented,
+  reversible transforms.
+- Follow Part 1's "Data and git" rule; when in doubt, ask before
   committing any data file.
-- In code, comments, commits, and conversation, use the dataset's
-  participant IDs only if they are themselves cleared for release;
-  otherwise use fake IDs (e.g. `sub-XXXX`).
+- Use real participant IDs in code, commits, or conversation only if
+  they are cleared for release; otherwise use fake IDs (`sub-XXXX`).
 
 ## Ambiguity — ask, don't assume
 
-Curation mistakes are expensive: a wrong guess applied across a dataset
-can be hard to detect and harder to undo. When an instruction is
-ambiguous or underspecified, **ask for clarification before acting** —
-do not pick the most likely interpretation and proceed. This applies
-especially to:
+A wrong guess applied across a dataset is hard to detect and harder to
+undo; a clarifying question costs seconds. When an instruction is
+ambiguous, ask instead of picking the likeliest interpretation —
+especially about:
 
-- **Scope:** "fix the filenames" — which files? All subjects and sessions,
-  or the ones just discussed?
-- **Edge cases:** the instruction covers the common case, but some files
-  don't match the pattern — ask what to do with the exceptions rather
-  than extrapolating.
-- **Destructive or hard-to-reverse steps:** anything that renames, moves,
-  overwrites, or removes data at scale. Restate what you're about to do,
-  including counts of affected files, and confirm.
-- **Conflicts:** the instruction contradicts the data specification, an
-  earlier decision in the curation log, or this file. Point out the
-  conflict instead of quietly choosing a side.
-- **Missing context:** referenced files, subjects, or decisions you can't
-  find. Say what you looked for and ask, rather than guessing at intent.
+- **Scope:** "fix the filenames" — all subjects and sessions, or just
+  the ones discussed?
+- **Edge cases:** files that don't match the stated pattern — ask,
+  don't extrapolate.
+- **Hard-to-reverse steps:** bulk renames, moves, overwrites, removals
+  — restate the plan with affected-file counts and confirm.
+- **Conflicts:** the instruction contradicts the data specification,
+  the curation log, or this file — point it out instead of quietly
+  choosing a side.
+- **Missing context:** files, subjects, or decisions you can't find —
+  say what you looked for and ask.
 
-A short clarifying question costs seconds; an assumption baked into a
-shared dataset can cost weeks.
+## Operating rules
 
-## What agents should do
+Do:
 
-- Construct and confirm the workflow before operating (see above).
-- When instructions are ambiguous, ask — never fill gaps in an
-  instruction with assumptions about the data or the user's intent.
-- Ask before running anything that writes to data directories.
-- Prefer dry-run flags where available; show the plan before bulk renames,
-  moves, or metadata edits.
-- Run the project's validation command after any change that touches
-  dataset structure, filenames, or metadata.
-- Log curation decisions in the project's curation log (see the layout
-  in Part 1) when making non-obvious changes.
-- Surface anything that looks like an identifier, an inconsistency, or a
-  consent/sharing question rather than working around it.
+- Ask before anything that writes to data directories; prefer dry-run
+  flags and show the plan before bulk changes.
+- Run the project's validation after any change to dataset structure,
+  filenames, or metadata.
+- Log non-obvious curation decisions in the project's curation log.
+- Surface anything that looks like an identifier, an inconsistency, or
+  a consent/sharing question rather than working around it.
 
-## What agents should not do
+Don't:
 
-- Do not upload data anywhere, or trigger a release, without explicit
-  instruction for that specific step.
-- Do not commit or push without being asked.
-- Do not "fix" validation errors by deleting files or records — flag them
-  for a human decision.
-- Do not modify the protected files listed in Part 1 without explicit
-  instruction.
+- Upload data or trigger a release without explicit instruction for
+  that specific step.
+- Commit or push without being asked.
+- "Fix" validation errors by deleting files or records — flag them for
+  a human decision.
+- Modify Part 1's protected files without explicit instruction.
