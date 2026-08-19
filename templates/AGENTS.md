@@ -1,5 +1,6 @@
 <!--
   AGENTS.md template — NIMH Data Science and Sharing Team (DSST)
+  Source: https://github.com/nimh-dsst/curation-helpers
 
   Copy this file to your curation repo root as AGENTS.md. AI coding
   agents (Claude Code, Codex, Copilot, etc.) read it when working in
