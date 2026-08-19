@@ -64,14 +64,13 @@ to years.]
 | Path | Contents |
 | --- | --- |
 | `AGENTS.md` | This file, at the repository root |
-| `code/` | [Curation scripts] |
-| `logs/` | [Curation history: decisions, transforms, flagged anomalies — see Part 2] |
-| `src/` | [Original data as received — immutable, read-only] |
-| `to_upload/` | [Working copy where curation happens; what gets uploaded] |
+| `code/` | Curation scripts |
+| `logs/` | Curation history: decisions, transforms, flagged anomalies — see Part 2 |
+| `src/` | Original data as received — immutable, read-only |
+| `to_upload/` | Working copy where curation happens; what gets uploaded |
 
 The path names above are the DSST convention. If your repo uses
-different names, edit the Path column to match; the bracketed Contents
-descriptions are yours to fill in either way. Part 2's references to
+different names, edit the Path column to match; Part 2's references to
 `src/` and `to_upload/` always mean whichever directories serve those
 roles in your table.
 
