@@ -184,8 +184,10 @@ exploration and answering questions are exempt.
   dictionary, an associated publication). Notify the user when you find
   one, and record it in `logs/` so it isn't lost with the conversation.
 - `logs/` must hold the complete curation history — every decision and
-  every transform, recorded as it happens, so the full path from `src/`
-  to `to_upload/` can be reconstructed later. It is a record, not a
+  every transform, recorded as it happens. A core purpose of this log
+  is reproducibility: together with the scripts in `code/`, it must
+  let someone re-derive `to_upload/` from `src/`. For the same reason,
+  prefer scripted transforms in `code/` over one-off manual edits. It is a record, not a
   transcript: write concise, human-readable entries (what was done, to
   which files, and why), never pasted conversation text, and when the
   log grows repetitive or disorganized, rewrite it for clarity —
