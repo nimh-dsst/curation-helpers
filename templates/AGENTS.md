@@ -43,12 +43,12 @@ definitions are all useful during curation.]
   curation tasks" in Part 2]
 - **Target repository:** [e.g. OpenNeuro, NDA, DANDI, Zenodo, an
   institutional archive]
-- **Validation:** [how spec conformance is checked, and the command to
-  run it — e.g. `[VALIDATOR] to_upload/`, a CI check, a review
-  checklist]
-- **De-identification check:** [how release-readiness is verified, and
-  the command to run it — e.g. `[PII SCAN] to_upload/`, a reviewer
-  checklist]
+- **Validation:** [how spec conformance is checked — e.g. a validator,
+  a CI check, a review checklist; the command goes under "Common
+  commands"]
+- **De-identification check:** [how release-readiness is verified —
+  e.g. a PII scan, a reviewer checklist; the command goes under
+  "Common commands"]
 
 ## De-identification requirements
 
@@ -101,9 +101,11 @@ subject-level metadata, original task events.]
 
 ## Common commands
 
-Validation and PII-scan commands are listed above; add any others here.
+All runnable commands live here.
 
 ```bash
+# [VALIDATOR COMMAND] to_upload/
+# [PII SCAN COMMAND] to_upload/
 # [e.g. pytest, conversion or reporting scripts]
 ```
 
