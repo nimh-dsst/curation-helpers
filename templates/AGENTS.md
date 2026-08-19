@@ -50,6 +50,31 @@ verified and a human approves the release.
   participant IDs only if they are themselves cleared for release;
   otherwise use fake IDs (e.g. `sub-XXXX`).
 
+## Ambiguity — ask, don't assume
+
+Curation mistakes are expensive: a wrong guess applied across a dataset
+can be hard to detect and harder to undo. When an instruction is
+ambiguous or underspecified, **ask for clarification before acting** —
+do not pick the most likely interpretation and proceed. This applies
+especially to:
+
+- **Scope:** "fix the filenames" — which files? All subjects and sessions,
+  or the ones just discussed?
+- **Edge cases:** the instruction covers the common case, but some files
+  don't match the pattern — ask what to do with the exceptions rather
+  than extrapolating.
+- **Destructive or hard-to-reverse steps:** anything that renames, moves,
+  overwrites, or removes data at scale. Restate what you're about to do,
+  including counts of affected files, and confirm.
+- **Conflicts:** the instruction contradicts the data specification, an
+  earlier decision in the curation log, or this file. Point out the
+  conflict instead of quietly choosing a side.
+- **Missing context:** referenced files, subjects, or decisions you can't
+  find. Say what you looked for and ask, rather than guessing at intent.
+
+A short clarifying question costs seconds; an assumption baked into a
+shared dataset can cost weeks.
+
 ## Data specification and target repository
 
 <!--
@@ -117,6 +142,9 @@ structure, filenames, or metadata.
 
 ## What agents should do
 
+- When instructions are ambiguous, ask — see "Ambiguity" above. Never
+  fill gaps in an instruction with assumptions about the data or the
+  user's intent.
 - Ask before running anything that writes to data directories.
 - Prefer dry-run flags where available; show the plan before bulk renames,
   moves, or metadata edits.
