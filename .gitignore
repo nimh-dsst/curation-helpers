@@ -9,9 +9,3 @@ venv/
 .DS_Store
 .idea/
 .vscode/
-
-# Data — never commit participant data
-*.csv
-*.tsv
-!*template*.csv
-!*template*.tsv
