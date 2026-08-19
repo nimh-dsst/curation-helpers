@@ -42,16 +42,21 @@ definitions are all useful during curation.]
   formatting then targets end-user experience (see Part 2)]
 - **Target repository:** [e.g. OpenNeuro, NDA, DANDI, Zenodo, an
   institutional archive]
-- **Validation:** [how spec conformance is checked — validator command,
-  CI check, review checklist]
-- **De-identification check:** [how release-readiness is verified —
-  PII scan script, reviewer checklist]
+- **Validation:** [how spec conformance is checked, and the command to
+  run it — e.g. `[VALIDATOR] to_upload/`, a CI check, a review
+  checklist]
+- **De-identification check:** [how release-readiness is verified, and
+  the command to run it — e.g. `[PII SCAN] to_upload/`, a reviewer
+  checklist]
 
 ## De-identification requirements
 
 [What must be removed or transformed before release, e.g. deface
 anatomical images, shift dates, drop free-text columns, restrict age
 to years.]
+
+- **Participant IDs cleared for release?** [yes/no — governs whether
+  real IDs may appear in code, commits, and conversation (see Part 2)]
 
 ## Repository layout
 
@@ -61,6 +66,10 @@ to years.]
 | `logs/` | [Curation history: decisions, transforms, flagged anomalies — see Part 2] |
 | `raw/` | [Original data as received — immutable, read-only] |
 | `to_upload/` | [Working copy where curation happens; what gets uploaded] |
+
+These path names are the DSST convention; if your repo differs, update
+the table — Part 2's references to `raw/` and `to_upload/` mean the
+directories serving these roles.
 
 ## Data and git
 
@@ -87,16 +96,16 @@ subject-level metadata, original task events.]
 
 ## Common commands
 
+Validation and PII-scan commands are listed above; add any others here.
+
 ```bash
-# [VALIDATOR COMMAND] [DATA DIRECTORY]
-# [PII SCAN COMMAND] [DATA DIRECTORY]
-# pytest
+# [e.g. pytest, conversion or reporting scripts]
 ```
 
 ## Conventions
 
-- Naming and structure: [the data specification above; study-specific
-  rules in logs/naming.md]
+- Naming and structure: [the data specification above; any
+  study-specific rules and where they are documented]
 - Code style: [e.g. ruff + black; shell scripts pass shellcheck]
 - Commits: [e.g. short imperative subjects; reference issue numbers]
 
@@ -114,15 +123,18 @@ Here, "you" is the agent; "the user" is the human collaborator.
 
 ## Construct the full workflow before operating
 
+Required before any work that modifies data or metadata; read-only
+exploration and answering questions are exempt.
+
 1. Read Part 1. If the task depends on an item still `[BRACKETED]`,
    ask the user — never assume a default, especially for the data
    specification or target repository. "None", "no opinion", and
    "I don't know yet" are valid answers — accept them, then propose an
    approach for the user to confirm, or scope the work to what doesn't
    depend on the open item.
-2. Map the end-to-end path — source data → transforms → formatting →
-   de-identification → validation → human review → upload — and place
-   the task within it.
+2. Map the end-to-end path (typically raw data → transforms →
+   formatting → de-identification → validation → human review →
+   upload; stages may interleave) and place the task within it.
 3. Present the workflow (steps, affected files, sign-off points) and
    get the user's confirmation before executing.
 
@@ -144,8 +156,8 @@ Here, "you" is the agent; "the user" is the human collaborator.
   sign-off.
 - De-identification is non-negotiable before release: remove or
   transform direct identifiers (names, birth dates, contact details,
-  record numbers, prohibited dates, identifying free text, faces in
-  imaging) per Part 1's requirements.
+  record numbers, exact dates where the sharing rules prohibit them,
+  identifying free text, faces in imaging) per Part 1's requirements.
 - If you find suspected PII/PHI — anywhere, including filenames,
   headers, sidecar metadata, logs, spreadsheet comments — stop and
   flag it. Describe its location without reproducing it; never
@@ -156,7 +168,8 @@ Here, "you" is the agent; "the user" is the human collaborator.
 - Follow Part 1's "Data and git" rule; when in doubt, ask before
   committing any data file.
 - Use real participant IDs in code, commits, or conversation only if
-  they are cleared for release; otherwise use fake IDs (`sub-XXXX`).
+  Part 1 says they are cleared for release; otherwise use fake IDs
+  (`sub-XXXX`).
 
 ## Anomalies and the curation log
 
@@ -196,8 +209,9 @@ especially about:
 
 Do:
 
-- Ask before anything that writes to data directories; prefer dry-run
-  flags and show the plan before bulk changes.
+- Ask before anything that writes to the data directories (`raw/`,
+  `to_upload/`); prefer dry-run flags and show the plan before bulk
+  changes. Writing to `logs/` needs no permission — it's expected.
 - Run the project's validation after any change to dataset structure,
   filenames, or metadata.
 - Surface consent- or sharing-related questions rather than working
