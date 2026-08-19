@@ -59,9 +59,9 @@ to years.]
 | Path | Contents |
 | --- | --- |
 | `code/` | [Curation scripts] |
-| `docs/` | [Notes, decisions, curation log] |
-| `[data path]` | [Working copy of the data] |
-| `[source path]` | [Immutable raw/source data — read-only] |
+| `logs/` | [Notes, decisions, curation log] |
+| `raw/` | [Original data as received — immutable, read-only] |
+| `to_upload/` | [Working copy where curation happens; what gets uploaded] |
 
 ## Data and git
 
@@ -97,7 +97,7 @@ subject-level metadata, original task events.]
 ## Conventions
 
 - Naming and structure: [the data specification above; study-specific
-  rules in docs/naming.md]
+  rules in logs/naming.md]
 - Code style: [e.g. ruff + black; shell scripts pass shellcheck]
 - Commits: [e.g. short imperative subjects; reference issue numbers]
 
