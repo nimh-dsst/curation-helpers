@@ -39,7 +39,8 @@ definitions are all useful during curation.]
 
 - **Data specification:** [e.g. BIDS vX.Y, NWB, psych-DS, a study data
   dictionary — name and link it. If none applies, write "none";
-  formatting then targets end-user experience (see Part 2)]
+  formatting then targets end-user experience, per "The two core
+  curation tasks" in Part 2]
 - **Target repository:** [e.g. OpenNeuro, NDA, DANDI, Zenodo, an
   institutional archive]
 - **Validation:** [how spec conformance is checked, and the command to
