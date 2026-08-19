@@ -29,12 +29,11 @@ are fine answers when it does.
 
 ## Overview
 
-[One or two sentences describing the dataset (what was collected, and
-from whom) and what will be shared publicly once curation is done.
-Add any context that would help the agent understand
-the dataset — for example, if the data supports a publication, cite or
-link it: study design, sample size, task descriptions, and variable
-definitions drawn from the paper are all useful during curation.]
+[One or two sentences: what was collected and from whom, and what will
+be shared publicly once curation is done. Add context that helps the
+agent understand the dataset — e.g. cite any associated publication;
+its study design, sample size, task descriptions, and variable
+definitions are all useful during curation.]
 
 ## Data specification and target repository
 
@@ -65,7 +64,7 @@ to years.]
 
 ## Data and git
 
-[What goes in git: e.g. code and docs only, data stays out; or data
+[What goes in git: e.g. code and logs only, data stays out; or data
 tracked with DataLad/git-annex.]
 
 ## Protected files
@@ -118,9 +117,9 @@ Here, "you" is the agent; "the user" is the human collaborator.
 1. Read Part 1. If the task depends on an item still `[BRACKETED]`,
    ask the user — never assume a default, especially for the data
    specification or target repository. "None", "no opinion", and
-   "I don't know yet" are valid answers: accept them without pressing,
-   then propose a sensible approach for the user to confirm, or scope
-   the work to what doesn't depend on the open item.
+   "I don't know yet" are valid answers — accept them, then propose an
+   approach for the user to confirm, or scope the work to what doesn't
+   depend on the open item.
 2. Map the end-to-end path — source data → transforms → formatting →
    de-identification → validation → human review → upload — and place
    the task within it.
@@ -138,8 +137,8 @@ Here, "you" is the agent; "the user" is the human collaborator.
 
 ## Data handling
 
-- The dataset is not public yet. Transmit data — including file
-  listings or metadata with participant information — to no service
+- The dataset is not public yet. Do not send data — including file
+  listings or metadata with participant information — to any service
   except the target repository, and there only when explicitly
   instructed. Every upload or "ready to share" step requires human
   sign-off.
@@ -166,15 +165,13 @@ Here, "you" is the agent; "the user" is the human collaborator.
   inconsistencies between the data and its documentation (README, data
   dictionary, an associated publication). Notify the user when you find
   one, and record it in `logs/` so it isn't lost with the conversation.
-- `logs/` must hold the complete curation history: every decision made
-  and every transform applied to the dataset, recorded as it happens,
-  so the full path from `raw/` to `to_upload/` can be reconstructed
-  later.
-- The log is a record, not a transcript. Write entries as concise,
-  human-readable summaries (what was done, to which files, and why) —
-  never paste conversation text. When the log grows repetitive or
-  disorganized, rewrite it for clarity, preserving every decision and
-  transform.
+- `logs/` must hold the complete curation history — every decision and
+  every transform, recorded as it happens, so the full path from `raw/`
+  to `to_upload/` can be reconstructed later. It is a record, not a
+  transcript: write concise, human-readable entries (what was done, to
+  which files, and why), never pasted conversation text, and when the
+  log grows repetitive or disorganized, rewrite it for clarity —
+  preserving every decision and transform.
 
 ## Ambiguity — ask, don't assume
 
@@ -203,8 +200,8 @@ Do:
   flags and show the plan before bulk changes.
 - Run the project's validation after any change to dataset structure,
   filenames, or metadata.
-- Surface anything that looks like an identifier or a consent/sharing
-  question rather than working around it.
+- Surface consent- or sharing-related questions rather than working
+  around them.
 
 Don't:
 
