@@ -7,6 +7,13 @@
   items. Fill in what you can — anything left bracketed, the agent will
   ask you about before starting work, so an incomplete Part 1 is safe.
 
+  The brackets themselves are the signal. To fill in an item, replace
+  the ENTIRE placeholder, brackets included, with your text. To leave
+  an item undecided, keep it exactly as-is, brackets and all — that is
+  how the agent knows to ask. Never put your real answer inside
+  brackets, and never delete a placeholder's brackets while leaving the
+  prompt text behind.
+
   Part 2 ("Rules for agents") should be kept intact — it is the reason
   this file exists.
 
@@ -27,9 +34,11 @@ human approves the release.
 # Part 1 — Project configuration (fill this in)
 
 Everything an agent needs to know about *your* project is in this part.
-Fill in what you can. **Any item still `[BRACKETED]` is not an
-invitation to guess: the agent will ask you about it before doing work
-that depends on it.**
+Fill in what you can — when you fill in an item, replace the whole
+placeholder, brackets included, with your text. Leave undecided items
+in their brackets: **any item still `[BRACKETED]` is not an invitation
+to guess — the agent will ask you about it before doing work that
+depends on it.**
 
 ## Overview
 
